@@ -1,10 +1,10 @@
-site_name: python_project_template
-site_url: https://chaitu-ycr.github.io/python_project_template/
-site_description: "My Python Projects Template"
+site_name: can_log_analyzer
+site_url: https://chaitu-ycr.github.io/can_log_analyzer/
+site_description: "CAN log Analyzer"
 site_author: chaitu-ycr
 
-repo_name: chaitu-ycr/python_project_template
-repo_url: https://github.com/chaitu-ycr/python_project_template
+repo_name: ""
+repo_url: https://github.com/chaitu-ycr/can_log_analyzer
 edit_uri: blob/main/docs/
 
 nav:

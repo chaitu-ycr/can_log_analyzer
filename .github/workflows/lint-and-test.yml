@@ -25,7 +25,7 @@ jobs:
           uv build
 
       - name: Run pylint
-        run: uv run pylint python_project_template
+        run: uv run pylint can_log_analyzer
 
       - name: Run pytest
         run: uv run pytest

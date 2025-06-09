@@ -1,2 +1,2 @@
 
-::: src.python_project_template.app
+::: src.can_log_analyzer.web_app

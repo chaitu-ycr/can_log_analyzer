@@ -1,76 +1,70 @@
-# python_project_template
+# CAN Log Analyzer
 
-A template repository for Python 🐍 projects. This template includes a recommended project structure, automated testing, and documentation generation using [MkDocs](https://www.mkdocs.org/).
+A web-based tool for analyzing CAN log files using Streamlit, Plotly, and cantools.
 
 ---
 
 ## Features
 
-- Standard Python project layout
-- Automated virtual environment setup
-- Build scripts for wheel packaging
-- Integrated unit testing with pytest and coverage reporting
-- Documentation generation with MkDocs
+- Upload and parse CAN log files (`.asc`, `.blf`)
+- Load CAN database files (`.dbc`)
+- Visualize and plot selected CAN signals interactively
+- User-friendly web interface with sidebar controls
+- Interactive signal selection and customizable plots (scatter, line, heatmap)
+- Grid and axis customization for detailed analysis
 
 ---
 
-## Getting Started
+## Environment Setup (Windows)
 
-### 1. Set up the environment
+You can set up the environment in several ways:
 
-Create and activate a virtual environment, and install dependencies:
+### 1. Using Git
 
-```sh
+Clone the repository and set up a virtual environment:
+
+```powershell
+git clone https://github.com/chaitu-ycr/can_log_analyzer.git
+cd can_log_analyzer
 scripts/venv_setup.bat
+.venv/Scripts/Activate
 ```
 
-### 2. Build the wheel package
+### 2. Using pip
 
-Generate a distributable `.whl` file:
+Install directly from the repository:
 
-```sh
-scripts/build_wheel_package.bat
+```powershell
+pip install git+https://github.com/chaitu-ycr/can_log_analyzer.git
 ```
 
-### 3. Run tests
+### 3. Using uv
 
-Execute all test cases and generate a coverage report:
+Add the package using [uv](https://github.com/astral-sh/uv):
 
-```sh
-scripts/run_pytests_with_report.bat
+```powershell
+uv add https://github.com/chaitu-ycr/can_log_analyzer.git
 ```
-
-Test results and coverage reports will be available in the `tests/report/` directory.
 
 ---
 
-## Documentation
+## Running the CAN Log Analyzer Web App
 
-Documentation is written in Markdown and built using MkDocs. To build and serve the documentation locally:
+To start the web application, run:
 
-```sh
-mkdocs serve
+```powershell
+python -m can_log_analyzer.run_web_app
 ```
 
-The documentation will be available at [http://localhost:8000](http://localhost:8000).
+- The app will launch in your default web browser at `http://localhost:8501` (unless otherwise configured).
+- Use the sidebar to upload your CAN log files (`.asc`, `.blf`) and CAN database files (`.dbc`).
+- Select channels, messages, and signals to visualize.
+- Choose plot type and customize grid/axis options as needed.
+- Interactive plots and analysis will be available after loading your files.
 
 ---
 
-## Project Structure
+## Notes
 
-```
-src/
-    python_project_template/
-        app.py
-        __init__.py
-tests/
-    test_my_package.py
-scripts/
-    venv_setup.bat
-    build_wheel_package.bat
-    run_pytests_with_report.bat
-    deploy_docs_to_github.bat
-docs/
-    index.md
-    reference_manual.md
-```
+- Ensure you are using Python 3.9–3.13 as specified in the project requirements.
+- Only `.dbc` files are supported for CAN database input.
