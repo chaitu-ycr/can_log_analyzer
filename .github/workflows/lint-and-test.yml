@@ -1,0 +1,40 @@
+name: lint-and-test
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  lint-and-test:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install --upgrade uv
+          uv sync --link-mode=copy
+          uv build
+
+      - name: Run pylint
+        run: uv run pylint python_project_template
+
+      - name: Run pytest
+        run: uv run pytest
+
+      - name: Run pytest with junitxml
+        run: uv run pytest --junitxml=result.xml
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: result.xml

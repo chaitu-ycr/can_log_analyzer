@@ -1,0 +1,38 @@
+site_name: python_project_template
+site_url: https://chaitu-ycr.github.io/python_project_template/
+site_description: "My Python Projects Template"
+site_author: chaitu-ycr
+
+repo_name: chaitu-ycr/python_project_template
+repo_url: https://github.com/chaitu-ycr/python_project_template
+edit_uri: blob/main/docs/
+
+nav:
+  - Overview: index.md
+  - src_manual: src_manual.md
+
+plugins:
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            docstring_style: google
+            show_source: false
+            merge_init_into_class: true
+            show_docstring_modules: false
+  - include-markdown:
+      recursive: true
+  - macros
+  - search
+
+theme:
+  name: readthedocs
+  features:
+    - toc.integrate
+    - search
+
+extra_css:
+  - _assets/extra.css
+
+extra_javascript:
+  - https://unpkg.com/mermaid@10.10.0/dist/mermaid.min.js

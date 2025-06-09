@@ -1,0 +1,41 @@
+[project]
+name = "python_project_template"
+version = "0.1.1"
+description = "My Python Projects Template"
+license = { file = "LICENSE" }
+readme = "README.md"
+requires-python = ">=3.9, <=3.13"
+authors = [{ name = "chaitu-ycr", email = "chaitu.ycr@gmail.com" }]
+keywords = ["python", "template"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Microsoft :: Windows"
+]
+dependencies = [
+    "requests"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-html",
+    "pytest-sugar",
+    "pytest-clarity",
+    "pytest-cov",
+    "pytest-xdist",
+    "pytest-watch",
+    "mkdocs-material",
+    "mkdocstrings-python",
+    "mkdocs-macros-plugin",
+    "mkdocs-include-markdown-plugin",
+]
+
+[project.urls]
+homepage = "https://github.com/chaitu-ycr/python_project_template"
+repository = "https://github.com/chaitu-ycr/python_project_template"
+documentation = "https://chaitu-ycr.github.io/python_project_template/"
+
+[build-system]
+requires = ["uv_build"]
+build-backend = "uv_build"
